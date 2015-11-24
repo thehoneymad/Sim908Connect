@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sim908Connect.Lib.Base
 {
-    public interface ICommandType
+    public enum ATCommandModes
     {
-
+        TEST,
+        READ,
+        EXECUTE
     }
 }

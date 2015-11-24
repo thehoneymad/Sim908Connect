@@ -9,17 +9,19 @@ namespace Sim908Connect.Lib.Base
 {
     public abstract class ATCommandBase
     {
+        public ATCommandModes ATCommandMode { get; set; }
         public virtual string BaseCommandString { get; set; }
         public virtual string TestCommandString { get { return string.Concat(BaseCommandString, "=?"); } }
         public virtual string ExecuteCommandString { get { return BaseCommandString; } }
 
-        public ATCommandBase(string baseCommandString)
+        
+        public int Timeout { get; set; }
+
+        public ATCommandBase(string baseCommandString , int timeout=500)
         {
-            this.BaseCommandString = BaseCommandString;
+            this.BaseCommandString = baseCommandString;
+            Timeout = timeout;
         }
-
-        public abstract AT_CGSNTestResponse Test();
-
 
     }
 }

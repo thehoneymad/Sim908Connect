@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sim908Connect.Lib.Base
 {
-    public interface IExecuteCommand : ICommandType
+    public class ATCommandResponseBase
     {
-        string ExecuteCommandString { get; }
+        public virtual string Status { get; set; } 
     }
 }

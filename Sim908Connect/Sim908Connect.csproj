@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sim908Connect</RootNamespace>
     <AssemblyName>Sim908Connect</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,14 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lib\Base\ATCommandBase.cs" />
-    <Compile Include="Lib\Base\ICommandType.cs" />
-    <Compile Include="Lib\Base\IExecuteCommand.cs" />
+    <Compile Include="Lib\Base\ATCommandModes.cs" />
+    <Compile Include="Lib\Base\ATCommandResponseBase.cs" />
+    <Compile Include="Lib\Base\CommandExecutor.cs" />
+    <Compile Include="Lib\Base\IProcessorFor.cs" />
     <Compile Include="Lib\Base\IResponseFor.cs" />
-    <Compile Include="Lib\Base\ITestCommand.cs" />
     <Compile Include="Lib\Constants\CommandFormats.cs" />
-    <Compile Include="Lib\GSM\Request\AT_CGSNRequest.cs" />
-    <Compile Include="Lib\GSM\Response\AT_CGSNExecuteResponse.cs" />
-    <Compile Include="Lib\GSM\Response\AT_CGSNTestResponse.cs" />
+    <Compile Include="Lib\GSM\Processor\AT_CGSNRequestProcessor.cs" />
+    <Compile Include="Lib\GSM\Request\AT_CGSN\AT_CGSNRequest.cs" />
+    <Compile Include="Lib\GSM\Response\AT_CGSN\AT_CGSNExecuteResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Sim908Service.cs" />
   </ItemGroup>

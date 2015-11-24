@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sim908Connect.Lib.Base
 {
-    public interface IResponseFor<TRequest, in TRequestType> 
-        where TRequest : ATCommandBase
-        where TRequestType : ICommandType
+    public interface IResponseFor<TResponse> 
+        where TResponse : ATCommandBase
     {
 
     }

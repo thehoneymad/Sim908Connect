@@ -9,11 +9,12 @@ namespace Sim908Connect.Service
 {
     public class Sim908Service
     {
-        public TResponse Test<TRequest, TResponse>(TRequest request)
+        public TResponse Process<TRequest, TResponse, TProcessor>(TRequest request, TProcessor processor)
             where TRequest : ATCommandBase
-            where TResponse : Lib.Base.IResponseFor<ATCommandBase, ITestCommand>
+            where TResponse : class, IResponseFor<TRequest>
+            where TProcessor : class, IProcessorFor<TRequest>
         {
-            throw new NotImplementedException();
+            return processor.Process(request) as TResponse;
         }
     }
 }

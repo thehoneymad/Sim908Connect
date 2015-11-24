@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sim908Connect.Lib.Base
 {
-    public interface ITestCommand : ICommandType
+    public interface IProcessorFor<TRequest>
+        where TRequest : ATCommandBase
     {
-        string TestCommandString { get; }
-        
+        ATCommandResponseBase Process(TRequest request);
     }
 }
