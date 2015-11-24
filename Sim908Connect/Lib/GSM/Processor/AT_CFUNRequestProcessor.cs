@@ -9,39 +9,41 @@ using System.Threading.Tasks;
 
 namespace Sim908Connect.Lib.GSM.Processor
 {
-    public class AT_CGSNRequestProcessor : IProcessorFor<AT_CGSNRequest>
+    public class AT_CFUNRequestProcessor : IProcessorFor<AT_CFUNRequest>
     {
+
         CommandExecutor _executor;
-        public AT_CGSNRequestProcessor(CommandExecutor executor)
+
+        public AT_CFUNRequestProcessor(CommandExecutor executor)
         {
             if (executor == null)
                 throw new ArgumentNullException("Executor cant be null");
 
             _executor = executor;
         }
-        public ATCommandResponseBase Process(AT_CGSNRequest request)
+        public ATCommandResponseBase Process(AT_CFUNRequest request)
         {
            switch(request.ATCommandMode)
             {
-                case ATCommandModes.EXECUTE:
+                case (ATCommandModes.EXECUTE):
                     return ProcessExecute(request);
-                case ATCommandModes.TEST:
-                    throw new NotImplementedException();
+                case (ATCommandModes.TEST):
+                case ATCommandModes.READ:
+                    throw new NotImplementedException("Processing for this mode has not been implemented yet");
                 default:
                     throw new InvalidOperationException(string.Concat("Specified ATCommand Mode ", request.ATCommandMode, " is not available for ", request.BaseCommandString));
+
             }
         }
 
-        private ATCommandResponseBase ProcessExecute(AT_CGSNRequest request)
+        private AT_CFUNExecuteResponse ProcessExecute(AT_CFUNRequest request)
         {
-            var data = _executor.Execute(request.ExecuteCommandString, request.Timeout);
-            string[] reponseArray = data.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            if (string.IsNullOrEmpty(request.Fun))
+                throw new Exception("AT+CFUN Fun parameter null or zero");
 
-            var Response = new AT_CGSNExecuteResponse();
-            Response.IMEI = reponseArray.First().Trim();
-            Response.Status = reponseArray.Last().Trim();
+            var data = _executor.Execute(request.ExecuteCommandString);
+            throw new NotImplementedException("Not Implemented yet");
 
-            return Response;
         }
     }
 }

@@ -49,8 +49,13 @@
     <Compile Include="Lib\Base\IResponseFor.cs" />
     <Compile Include="Lib\Constants\CommandFormats.cs" />
     <Compile Include="Lib\GSM\Processor\AT_CGSNRequestProcessor.cs" />
-    <Compile Include="Lib\GSM\Request\AT_CGSN\AT_CGSNRequest.cs" />
-    <Compile Include="Lib\GSM\Response\AT_CGSN\AT_CGSNExecuteResponse.cs" />
+    <Compile Include="Lib\GSM\Request\AT_CFUNRequest.cs" />
+    <Compile Include="Lib\GSM\Request\AT_CGSNRequest.cs" />
+    <Compile Include="Lib\GSM\Response\AT_CFUNExecuteResponse.cs" />
+    <Compile Include="Lib\GSM\Response\AT_CGSNExecuteResponse.cs" />
+    <Compile Include="Lib\Profile\Processor\ATERequestProcessor.cs" />
+    <Compile Include="Lib\Profile\Request\ATE\ATERequest.cs" />
+    <Compile Include="Lib\Profile\Response\ATE\ATEResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Sim908Service.cs" />
   </ItemGroup>

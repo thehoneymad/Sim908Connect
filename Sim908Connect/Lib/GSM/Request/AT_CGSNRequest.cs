@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sim908Connect.Lib.GSM.Request.AT_CGSN
+namespace Sim908Connect.Lib.GSM.Request
 {
     public class AT_CGSNRequest : ATCommandBase
     {    

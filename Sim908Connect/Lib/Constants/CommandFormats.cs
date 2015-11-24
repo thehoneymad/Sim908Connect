@@ -9,6 +9,8 @@ namespace Sim908Connect.Lib.Constants
     internal class CommandFormats
     {
         internal const string AT_CGSNBASE = "AT+CGSN";
+        internal const string ATE = "ATE";
+        internal const string AT_CFUN = "AT_CFUN";
 
     }
 }
